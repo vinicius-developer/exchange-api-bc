@@ -1,9 +1,9 @@
-package com.api.bcb.currency.exchange;
+package com.api.bcb.currency;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrency;
+import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrencyInterface;
 import com.api.bcb.currency.exchange.factory.ExchangeTaxesFactory;
 
 /**
@@ -14,7 +14,11 @@ public class App
 {
     public static void main( String[] args ) throws URISyntaxException, IOException, InterruptedException
     {
-        SeachResultCurrencyInterface new ExchangeTaxesFactory().currency().get();
+        SearchResultCurrencyInterface result = new ExchangeTaxesFactory()
+            .currency()
+            .get();
+
+        System.out.println(result);
             
     }
 }

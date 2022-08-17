@@ -2,7 +2,7 @@ package com.api.bcb.currency.exchange.currency.ds;
 
 import java.util.List;
 
-public interface SeachResultCurrencyInterface {
+public interface SearchResultCurrencyInterface {
     
     String getContext();
 

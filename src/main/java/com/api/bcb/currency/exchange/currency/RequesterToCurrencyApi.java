@@ -9,16 +9,17 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-import com.api.bcb.currency.commom.api.BcCentralApi;
+import com.api.bcb.currency.commom.api.BcCentralApiV1;
 import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrency;
+import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrencyInterface;
 
-class RequesterToCurrencyApi extends BcCentralApi {
+class RequesterToCurrencyApi extends BcCentralApiV1 {
 
     public RequesterToCurrencyApi(String params) {
-        super(params);
+        super("/Moedas", params);
     }
 
-    public SearchResultCurrency doRequest() throws URISyntaxException, IOException, InterruptedException {
+    public SearchResultCurrencyInterface doRequest() throws URISyntaxException, IOException, InterruptedException {
         HttpRequest httpRequest = this.getRequester();
 
         HttpResponse<String> response = this.getResponseFrom(httpRequest);

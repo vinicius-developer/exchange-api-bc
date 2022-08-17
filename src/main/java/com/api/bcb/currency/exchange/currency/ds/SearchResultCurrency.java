@@ -8,7 +8,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-public class SearchResultCurrency implements SeachResultCurrencyInterface {
+public class SearchResultCurrency implements SearchResultCurrencyInterface {
 
     private String context;
 
@@ -31,7 +31,6 @@ public class SearchResultCurrency implements SeachResultCurrencyInterface {
 
             JsonObject object =  value.getAsJsonObject();
 
-
             CurrencyData currencyData = new CurrencyData(
                 object.get("simbolo").getAsString(), 
                 object.get("nomeFormatado").getAsString(), 
@@ -41,8 +40,6 @@ public class SearchResultCurrency implements SeachResultCurrencyInterface {
             this.listCurrencyData.add(currencyData);
             
         }
-
-        System.out.println(this.listCurrencyData);
 
     }
 
