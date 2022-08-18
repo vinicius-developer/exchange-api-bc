@@ -6,8 +6,6 @@ public interface DollarQuoteDayInterface {
 
     SearchResultDolarQuoteDay get();
     
-    DollarQuoteDayInterface dolarQuote(String date);
-
-    DollarQuoteDayInterface max(Integer numberResult);
+    DollarQuoteDayInterface max(int numberElements);
 
 }
