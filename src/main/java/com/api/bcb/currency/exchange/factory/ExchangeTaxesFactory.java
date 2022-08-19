@@ -4,6 +4,8 @@ import com.api.bcb.currency.exchange.currency.Currency;
 import com.api.bcb.currency.exchange.currency.CurrencyInterface;
 import com.api.bcb.currency.exchange.dollar.quote.day.DollarQuoteDay;
 import com.api.bcb.currency.exchange.dollar.quote.day.DollarQuoteDayInterface;
+import com.api.bcb.currency.exchange.dollar.quote.period.DollarQuotePeriod;
+import com.api.bcb.currency.exchange.dollar.quote.period.DollarQuotePeriodInterface;
 
 public class ExchangeTaxesFactory implements ExchangeTaxesInterface {
 
@@ -12,8 +14,14 @@ public class ExchangeTaxesFactory implements ExchangeTaxesInterface {
         return new Currency();
     }
 
+    @Override
     public DollarQuoteDayInterface dollarQuoteDay(String date) {
         return new DollarQuoteDay(date);
+    }
+
+    @Override
+    public DollarQuotePeriodInterface dollarQuotePeriod(String start, String end) {
+        return new DollarQuotePeriod(start, end);
     }
     
 }
