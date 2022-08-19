@@ -1,16 +1,16 @@
 package com.api.bcb.currency.exchange.dollar.quote.day;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.security.InvalidParameterException;
 
 import com.api.bcb.currency.commom.api.EntityApiInterface;
 import com.api.bcb.currency.commom.api.date.simple.ValidateSimpleDate;
-import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteDay;
+import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteDayInterface;
 
 public class DollarQuoteDay extends EntityApiInterface implements DollarQuoteDayInterface {
 
     private String date;
-
-    private Integer max;
 
     public DollarQuoteDay(String date) {
 
@@ -19,36 +19,34 @@ public class DollarQuoteDay extends EntityApiInterface implements DollarQuoteDay
     }
 
     @Override
-    public SearchResultDolarQuoteDay get() {
-        // TODO Auto-generated method stub
-        return null;
+    public SearchResultDolarQuoteDayInterface get() 
+            throws URISyntaxException, IOException, InterruptedException {
+        return new RequesterToDollarQuoteDayApi(this.getRequestParams())
+            .doRequest();
     }
 
     private void setDate(String date) {
         
-        if(!ValidateSimpleDate.isValid(date)) {
-            throw new InvalidParameterException("Data informada nao e valida");
-        }
+        this.validateData(date);
 
         this.date = date;
 
     }
 
     @Override
-    public DollarQuoteDayInterface max(int numberElements) {
-        if(numberElements < 0) {
-            throw new InvalidParameterException("Quantidade deve ser maior que zero");
-        }
-
-        this.max = numberElements;
-
-        return this;
+    protected String getRequestParams() {
+        return new StringBuilder("?@dataCotacao=")
+            .append("'")
+            .append(this.date)
+            .append("'")
+            .append("&format=json")
+            .toString();
     }
 
-    @Override
-    protected String getRequestParams() {
-        // TODO Auto-generated method stub
-        return null;
+    private void validateData(String date) {
+        if(!ValidateSimpleDate.isValid(date)) {
+            throw new InvalidParameterException("Data informada nao e valida");
+        }
     }
     
 }
