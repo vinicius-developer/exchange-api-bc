@@ -11,7 +11,7 @@ import com.google.gson.JsonObject;
 
 public class SearchResultCurrency extends SearchResult implements SearchResultCurrencyInterface {
 
-    private List<CurrencyData> listCurrencyData = new ArrayList<>(); 
+    private final List<CurrencyData> listCurrencyData = new ArrayList<>(); 
 
     public SearchResultCurrency(String from) {
         JsonObject jsonObject = new Gson().fromJson(from, JsonObject.class);
