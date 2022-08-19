@@ -1,9 +1,8 @@
 package com.api.bcb.currency;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 
-import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteDayInterface;
+import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuotePeriodInterface;
 import com.api.bcb.currency.exchange.factory.ExchangeTaxesFactory;
 
 /**
@@ -12,9 +11,9 @@ import com.api.bcb.currency.exchange.factory.ExchangeTaxesFactory;
  */
 public class App 
 {
-    public static void main( String[] args ) throws URISyntaxException, IOException, InterruptedException
+    public static void main( String[] args ) throws IOException, InterruptedException
     {
-        SearchResultDolarQuoteDayInterface result = new ExchangeTaxesFactory()
+        SearchResultDolarQuotePeriodInterface result = new ExchangeTaxesFactory()
             .dollarQuotePeriod("08-08-2022", "08-15-2022")
             .get();
 

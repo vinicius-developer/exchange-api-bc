@@ -1,7 +1,6 @@
 package com.api.bcb.currency.exchange.currency;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.security.InvalidParameterException;
 
 import com.api.bcb.currency.commom.api.EntityApiInterface;
@@ -19,13 +18,15 @@ import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrencyInterface;
  * Essa classe faz a configuração das variáveis do path e chama o 
  * Cliente que vai efetivamente fazer o request para a API.
  */
-public class Currency extends EntityApiInterface implements CurrencyInterface {
+public class Currency extends EntityApiInterface 
+    implements CurrencyInterface {
 
     private Integer max = 100;
 
     //1
     @Override
-    public SearchResultCurrencyInterface get() throws URISyntaxException, IOException, InterruptedException {
+    public SearchResultCurrencyInterface get() 
+        throws IOException, InterruptedException {
         return new RequesterToCurrencyApi(this.getRequestParams())
             .doRequest();
     }

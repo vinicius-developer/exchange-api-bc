@@ -1,8 +1,6 @@
 package com.api.bcb.currency.exchange.currency;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 import com.api.bcb.currency.commom.api.BcCentralApiV1;
@@ -19,7 +17,7 @@ class RequesterToCurrencyApi extends BcCentralApiV1 {
     }
 
     public SearchResultCurrencyInterface doRequest() 
-            throws URISyntaxException, IOException, InterruptedException {
+            throws IOException, InterruptedException {
 
         HttpResponse<String> response = this.client.get(this.route);
 

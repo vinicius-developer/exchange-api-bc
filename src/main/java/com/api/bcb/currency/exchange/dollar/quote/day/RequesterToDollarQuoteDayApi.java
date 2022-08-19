@@ -1,7 +1,6 @@
 package com.api.bcb.currency.exchange.dollar.quote.day;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.http.HttpResponse;
 
 import com.api.bcb.currency.commom.api.BcCentralApiV1;
@@ -11,18 +10,19 @@ import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteD
 
 class RequesterToDollarQuoteDayApi extends BcCentralApiV1 {
 
-    private Client client = new Client();
+    private final Client client = new Client();
 
     public RequesterToDollarQuoteDayApi(String params) {
         super("/CotacaoDolarDia(dataCotacao=@dataCotacao)", params);
     }
 
     public SearchResultDolarQuoteDayInterface doRequest() 
-            throws URISyntaxException, IOException, InterruptedException {
+            throws IOException, InterruptedException {
 
         HttpResponse<String> response = this.client.get(this.route);
 
         return new SearchResultDolarQuoteDay(response.body());
+
     }
     
 }

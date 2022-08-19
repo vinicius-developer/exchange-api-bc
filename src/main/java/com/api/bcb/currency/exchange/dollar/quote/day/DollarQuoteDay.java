@@ -1,14 +1,14 @@
 package com.api.bcb.currency.exchange.dollar.quote.day;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.security.InvalidParameterException;
 
 import com.api.bcb.currency.commom.api.EntityApiInterface;
 import com.api.bcb.currency.commom.api.date.simple.ValidateSimpleDate;
 import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteDayInterface;
 
-public class DollarQuoteDay extends EntityApiInterface implements DollarQuoteDayInterface {
+public class DollarQuoteDay extends EntityApiInterface 
+    implements DollarQuoteDayInterface {
 
     private String date;
 
@@ -20,7 +20,7 @@ public class DollarQuoteDay extends EntityApiInterface implements DollarQuoteDay
 
     @Override
     public SearchResultDolarQuoteDayInterface get() 
-            throws URISyntaxException, IOException, InterruptedException {
+            throws IOException, InterruptedException {
         return new RequesterToDollarQuoteDayApi(this.getRequestParams())
             .doRequest();
     }
