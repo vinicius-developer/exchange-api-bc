@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public class ValidateSimpleDate {
 
     private static final SimpleDateFormat pattern = 
-            new SimpleDateFormat("MM/dd/yyyy");
+            new SimpleDateFormat("MM-dd-yyyy");
 
     public static boolean isValid(String date) {
 

@@ -11,18 +11,27 @@ import java.time.temporal.ChronoUnit;
 
 public class Client {
 
-    public HttpResponse<String> getResponseFrom(HttpRequest request)
+    public HttpResponse<String> get(String route) 
+        throws URISyntaxException, IOException, InterruptedException {
+
+        HttpRequest httpRequest = this.getRequester(route);
+
+        return this.getResponseFrom(httpRequest);
+
+    }
+
+    private HttpResponse<String> getResponseFrom(HttpRequest request)
             throws IOException, InterruptedException {
         return HttpClient.newBuilder()
                 .build()
                 .send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    public HttpRequest getRequester(String route) throws URISyntaxException {
+    private HttpRequest getRequester(String route) throws URISyntaxException {
         return HttpRequest.newBuilder(new URI(route))
             .timeout(Duration.of(5, ChronoUnit.SECONDS))
             .GET()
             .build();
     }
-    
+
 }
