@@ -21,15 +21,9 @@ class RequesterToCurrencyApi extends BcCentralApiV1 {
     public SearchResultCurrencyInterface doRequest() 
             throws URISyntaxException, IOException, InterruptedException {
 
-        HttpRequest httpRequest = this.client.getRequester(this.route);
-
-        HttpResponse<String> response = this.client.getResponseFrom(httpRequest);
+        HttpResponse<String> response = this.client.get(this.route);
 
         return new SearchResultCurrency(response.body());
     }
-
-    
-
-
 
 }

@@ -28,9 +28,40 @@ public class CurrencyData {
 
     @Override
     public String toString() {
-        return "{" + this.symbol + ", " 
-                + this.formattedName +  ", " 
-                + this.type + "}";
+        return new StringBuilder("[ \n")
+            .append("\"simbolo\": ")
+            .append("\"")
+            .append(this.symbol)
+            .append("\", \n")
+            .append("\"nome_formatado\": ")
+            .append("\"")
+            .append(this.formattedName)
+            .append("\", \n")
+            .append("\"tipo\": ")
+            .append("\"")
+            .append(this.type)
+            .append("\", \n")
+            .toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) {
+            return false;
+        }
+
+        CurrencyData currencyData = (CurrencyData) obj;
+
+        if(!currencyData.symbol.equals(this.symbol)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return this.symbol.hashCode();
     }
 
 }

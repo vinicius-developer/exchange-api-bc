@@ -44,12 +44,11 @@ public class Currency extends EntityApiInterface implements CurrencyInterface {
 
     @Override
     protected String getRequestParams() {
-        StringBuilder requestParam = new StringBuilder()
+        return new StringBuilder()
                 .append("?$top=")
                 .append(this.max.toString())
-                .append("&format=json");
-            
-        return requestParam.toString();
+                .append("&format=json")
+                .toString();
     }
 
 }
