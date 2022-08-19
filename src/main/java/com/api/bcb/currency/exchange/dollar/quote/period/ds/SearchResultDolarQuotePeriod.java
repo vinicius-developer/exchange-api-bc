@@ -47,5 +47,17 @@ public class SearchResultDolarQuotePeriod extends SearchResult
     public List<ResultDolarQuote> getListResultDolarQuote() {
         return this.listResultDolarQuotes;
     }
+
+    @Override
+    public String toString() {
+        return new StringBuilder("{\"context\": ")
+            .append("\"")
+            .append(this.getContext())
+            .append("\", \n")
+            .append("\"value\": {\n")
+            .append(this.listResultDolarQuotes)
+            .append("}\n")
+            .toString();
+    }
     
 }

@@ -1,12 +1,11 @@
 package com.api.bcb.currency.exchange.dollar.quote.period;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.security.InvalidParameterException;
 
 import com.api.bcb.currency.commom.api.EntityApiInterface;
 import com.api.bcb.currency.commom.api.date.simple.ValidateSimpleDate;
-import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteDayInterface;
+import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuotePeriodInterface;
 
 public class DollarQuotePeriod extends EntityApiInterface implements DollarQuotePeriodInterface {
 
@@ -32,10 +31,10 @@ public class DollarQuotePeriod extends EntityApiInterface implements DollarQuote
     }
 
     @Override
-    public SearchResultDolarQuoteDayInterface get() 
-        throws URISyntaxException, IOException, InterruptedException {
-        System.out.println(this.getRequestParams());
-        return null;
+    public SearchResultDolarQuotePeriodInterface get() 
+        throws IOException, InterruptedException {
+        return new RequesterToDollarQuotePeriodApi(this.getRequestParams())
+            .doRequest();
     }
 
     @Override
