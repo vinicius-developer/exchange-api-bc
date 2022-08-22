@@ -15,7 +15,8 @@ import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuo
  * 
  * Classe criada para acessar as cotações do dolar por periodo
  * no Endpoint CotacaoDolarPeriodo(dataInicial=@dataInicial,
- * dataFinalCotacao=@dataFinalCotacao)
+ * dataFinalCotacao=@dataFinalCotacao) a data padrão empregada 
+ * pela API é MM-dd-yyyy
  * 
  * Os parâmetros obrigatórios para acessar esse recurso é a 
  * data inicia e a data final do período de cotação

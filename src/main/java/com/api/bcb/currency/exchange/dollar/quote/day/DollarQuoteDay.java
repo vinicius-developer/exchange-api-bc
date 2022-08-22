@@ -14,7 +14,8 @@ import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteD
  * 2 - meia centena de linha na método
  * 
  * Classe criada para acessar a quotação do dolar de um unico dia
- * no Endpoint /CotacaoDolarDia(dataCotacao=@dataCotacao)
+ * no Endpoint /CotacaoDolarDia(dataCotacao=@dataCotacao) a data padrão 
+ * empregada pela API é MM-dd-yyyy
  * 
  * Até o momento o único parâmetro obrigatório para acessar esse 
  * endpoint é a data da cotação
