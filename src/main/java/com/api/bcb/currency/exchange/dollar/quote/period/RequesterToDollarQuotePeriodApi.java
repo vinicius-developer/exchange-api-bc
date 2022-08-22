@@ -10,7 +10,7 @@ import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuo
 
 public class RequesterToDollarQuotePeriodApi extends BcCentralApiV1 {
 
-    private Client client = new Client();
+    private final Client client = new Client();
 
     public RequesterToDollarQuotePeriodApi(String params) {
         super(RequesterToDollarQuotePeriodApi.getPath(), params);
@@ -25,9 +25,8 @@ public class RequesterToDollarQuotePeriodApi extends BcCentralApiV1 {
     }
 
     private static String getPath() {
-        return new StringBuilder("/CotacaoDolarPeriodo(dataInicial=@dataInicial,")
-            .append("dataFinalCotacao=@dataFinalCotacao)")
-            .toString();
+        return "/CotacaoDolarPeriodo(dataInicial=@dataInicial," +
+            "dataFinalCotacao=@dataFinalCotacao)";
     }
     
 }

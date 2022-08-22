@@ -10,7 +10,7 @@ import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrencyInterface;
 
 class RequesterToCurrencyApi extends BcCentralApiV1 {
 
-    private Client client = new Client();
+    private final Client client = new Client();
 
     public RequesterToCurrencyApi(String params) {
         super("/Moedas", params);
