@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 public class SearchResultDolarQuotePeriod extends SearchResult 
     implements SearchResultDolarQuotePeriodInterface {
 
-    private final List<ResultDolarQuote> listResultDolarQuotes = new ArrayList<>();
+    private final List<ResultDollarQuote> listResultDolarQuotes = new ArrayList<>();
 
     public SearchResultDolarQuotePeriod(String from) {
         JsonObject jsonObject = new Gson().fromJson(from, JsonObject.class);
@@ -31,7 +31,7 @@ public class SearchResultDolarQuotePeriod extends SearchResult
 
             JsonObject object = element.getAsJsonObject();
 
-            ResultDolarQuote resultDolarQuote = new ResultDolarQuote(
+            ResultDollarQuote resultDolarQuote = new ResultDollarQuote(
                 object.get("cotacaoCompra").getAsBigDecimal(), 
                 object.get("cotacaoVenda").getAsBigDecimal(), 
                 object.get("dataHoraCotacao").getAsString()
@@ -44,20 +44,19 @@ public class SearchResultDolarQuotePeriod extends SearchResult
     }
 
     @Override
-    public List<ResultDolarQuote> getListResultDolarQuote() {
+    public List<ResultDollarQuote> getListResultDolarQuote() {
         return this.listResultDolarQuotes;
     }
 
     @Override
     public String toString() {
-        return new StringBuilder("{\"context\": ")
-            .append("\"")
-            .append(this.getContext())
-            .append("\", \n")
-            .append("\"value\": {\n")
-            .append(this.listResultDolarQuotes)
-            .append("}\n")
-            .toString();
+        return "{\"context\": " + 
+            "\"" + 
+            this.getContext() + 
+            "\", \n" + 
+            "\"value\": {\n" +
+            this.listResultDolarQuotes + 
+            "}\n";
     }
     
 }

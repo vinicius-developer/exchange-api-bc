@@ -2,7 +2,7 @@ package com.api.bcb.currency.exchange.dollar.quote.period.ds;
 
 import java.math.BigDecimal;
 
-public class ResultDolarQuote {
+public class ResultDollarQuote {
 
     private BigDecimal purchaseQuote;
 
@@ -10,7 +10,7 @@ public class ResultDolarQuote {
 
     private String hourQuote;
 
-    public ResultDolarQuote(
+    public ResultDollarQuote(
         BigDecimal purchaseQuote, 
         BigDecimal saleQuote, 
         String hourQuote ) {
@@ -36,17 +36,16 @@ public class ResultDolarQuote {
 
     @Override
     public String toString() {
-        return new StringBuilder("{\n")
-            .append("\"purchaseQuote\": ")
-            .append(this.purchaseQuote)
-            .append(", \n")
-            .append("\"sellQuote\": ")
-            .append(this.saleQuote)
-            .append(", \n")
-            .append("\"hourQuote\": ")
-            .append(this.hourQuote)
-            .append("\n}")
-            .toString();
+        return "{\n" +
+            "\"purchaseQuote\": " + 
+            this.purchaseQuote + 
+            ", \n" + 
+            "\"sellQuote\": " + 
+            this.saleQuote + 
+            ", \n" + 
+            "\"hourQuote\": " + 
+            this.hourQuote + 
+            "\n}";
             
     }
         
