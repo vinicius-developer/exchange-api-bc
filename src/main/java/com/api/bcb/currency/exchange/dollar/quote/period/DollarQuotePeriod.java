@@ -7,29 +7,35 @@ import com.api.bcb.currency.commom.api.EntityApiInterface;
 import com.api.bcb.currency.commom.api.date.simple.ValidateSimpleDate;
 import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuotePeriodInterface;
 
-public class DollarQuotePeriod extends EntityApiInterface implements DollarQuotePeriodInterface {
+/**
+ * 1 - método public
+ * 1 - modificador de fluxo
+ * 2 - centena de linha na classe
+ * 2 - meia centena de linha na método
+ * 
+ * Classe criada para acessar as cotações do dolar por periodo
+ * no Endpoint CotacaoDolarPeriodo(dataInicial=@dataInicial,
+ * dataFinalCotacao=@dataFinalCotacao)
+ * 
+ * Os parâmetros obrigatórios para acessar esse recurso é a 
+ * data inicia e a data final do período de cotação
+ */
+public class DollarQuotePeriod extends EntityApiInterface 
+    implements DollarQuotePeriodInterface {
 
-    private String start;
+    private final String start;
 
-    private String end;
+    private final String end;
 
     public DollarQuotePeriod(String start, String end) {
-        this.setStart(start);
-        this.setEnd(end);
+        this.validateData(start);
+        this.start = start;
+        
+        this.validateData(end);
+        this.end = end;
     }
 
-    private void setStart(String date) {
-        this.validateData(date);
-
-        this.start = date;
-    }
-
-    private void setEnd(String date) {
-        this.validateData(date);
-
-        this.end = date;
-    }
-
+    //1
     @Override
     public SearchResultDolarQuotePeriodInterface get() 
         throws IOException, InterruptedException {
@@ -52,6 +58,7 @@ public class DollarQuotePeriod extends EntityApiInterface implements DollarQuote
     }
 
     private void validateData(String date) {
+        //1
         if(!ValidateSimpleDate.isValid(date)) {
             throw new InvalidParameterException("Data informada nao e valida");
         }

@@ -13,33 +13,29 @@ import com.api.bcb.currency.exchange.currency.ds.SearchResultCurrencyInterface;
  * 2 - meia centena de linha na método
  * 
  * Classe criada para acessar a lista de meodas disponíveis na API
- * acessando o endpoint /Moedas. 
+ * acessando o endpoint /Moedas.
  * 
- * Essa classe faz a configuração das variáveis do path e chama o 
+ * Essa classe faz a configuração das variáveis do path e chama o
  * Cliente que vai efetivamente fazer o request para a API.
  */
-public class Currency extends EntityApiInterface 
-    implements CurrencyInterface {
+public class Currency extends EntityApiInterface
+        implements CurrencyInterface {
 
     private Integer max = 100;
 
-    //1
+    // 1
     @Override
-    public SearchResultCurrencyInterface get() 
-        throws IOException, InterruptedException {
+    public SearchResultCurrencyInterface get()
+            throws IOException, InterruptedException {
         return new RequesterToCurrencyApi(this.getRequestParams())
-            .doRequest();
+                .doRequest();
     }
 
-    //1
+    // 1
     @Override
     public CurrencyInterface max(Integer numberElements) {
-        if(numberElements < 0) {
-            throw new InvalidParameterException("Quantidade deve ser maior que zero");
-        }
-
+        this.validateNumberMaxOfResult(numberElements);
         this.max = numberElements;
-
         return this;
     }
 
@@ -50,6 +46,13 @@ public class Currency extends EntityApiInterface
                 .append(this.max.toString())
                 .append("&format=json")
                 .toString();
+    }
+
+    private void validateNumberMaxOfResult(Integer numberElements) {
+        // 1
+        if (numberElements < 0) {
+            throw new InvalidParameterException("Quantidade deve ser maior que zero");
+        }
     }
 
 }

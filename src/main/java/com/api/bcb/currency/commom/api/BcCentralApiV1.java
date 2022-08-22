@@ -1,7 +1,7 @@
 package com.api.bcb.currency.commom.api;
 
 /**
- * Classe criada para armazenar o endpoint do banco central
+ * Classe criada para juntar o endpoint com o path do Bacen
  */
 public abstract class BcCentralApiV1 {
     
