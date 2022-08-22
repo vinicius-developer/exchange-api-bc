@@ -3,7 +3,7 @@ package com.api.bcb.currency.exchange.dollar.quote.day;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 
-import com.api.bcb.currency.commom.api.EntityApiInterface;
+import com.api.bcb.currency.commom.api.EntityApi;
 import com.api.bcb.currency.commom.api.date.simple.ValidateSimpleDate;
 import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteDayInterface;
 
@@ -20,7 +20,7 @@ import com.api.bcb.currency.exchange.dollar.quote.day.ds.SearchResultDolarQuoteD
  * Até o momento o único parâmetro obrigatório para acessar esse 
  * endpoint é a data da cotação
  */
-public class DollarQuoteDay extends EntityApiInterface 
+public class DollarQuoteDay extends EntityApi 
     implements DollarQuoteDayInterface {
 
     private final String date;
@@ -40,12 +40,11 @@ public class DollarQuoteDay extends EntityApiInterface
 
     @Override
     protected String getRequestParams() {
-        return new StringBuilder("?@dataCotacao=")
-            .append("'")
-            .append(this.date)
-            .append("'")
-            .append("&format=json")
-            .toString();
+        return "?@dataCotacao=" +
+            "'" +
+            this.date +
+            "'" +
+            "&format=json";
     }
 
     private void validateData(String date) {

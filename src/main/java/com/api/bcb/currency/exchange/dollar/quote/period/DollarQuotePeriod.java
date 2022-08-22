@@ -3,7 +3,7 @@ package com.api.bcb.currency.exchange.dollar.quote.period;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 
-import com.api.bcb.currency.commom.api.EntityApiInterface;
+import com.api.bcb.currency.commom.api.EntityApi;
 import com.api.bcb.currency.commom.api.date.simple.ValidateSimpleDate;
 import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuotePeriodInterface;
 
@@ -21,7 +21,7 @@ import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuo
  * Os parâmetros obrigatórios para acessar esse recurso é a 
  * data inicia e a data final do período de cotação
  */
-public class DollarQuotePeriod extends EntityApiInterface 
+public class DollarQuotePeriod extends EntityApi 
     implements DollarQuotePeriodInterface {
 
     private final String start;
@@ -46,20 +46,18 @@ public class DollarQuotePeriod extends EntityApiInterface
 
     @Override
     protected String getRequestParams() {
-        return new StringBuilder("?@dataInicial=")
-            .append("'")
-            .append(this.start.toString())
-            .append("'")
-            .append("&@dataFinalCotacao=")
-            .append("'")
-            .append(this.end.toString())
-            .append("'")
-            .append("&$format=json")
-            .toString();
+        return "?@dataInicial=" + 
+            "'" + 
+            this.start + 
+            "'" +
+            "&@dataFinalCotacao=" + 
+            "'" + 
+            this.end + 
+            "'" +
+            "&$format=json";
     }
 
     private void validateData(String date) {
-        //1
         if(!ValidateSimpleDate.isValid(date)) {
             throw new InvalidParameterException("Data informada nao e valida");
         }
