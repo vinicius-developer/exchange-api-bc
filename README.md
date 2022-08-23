@@ -21,37 +21,114 @@ de valores a serem retornados.
 Exemplo de utilização: 
 
 ```
-  new ExchangeTaxesFactory().currency()
-      .get()
+  new ExchangeTaxesFactory()
+      .currency()
+      .get();
       
 ```
 
 ou 
 
 ```
-  new ExchangeTaxesFactory().currency()
-      .max()
-      .get()
-      
+  new ExchangeTaxesFactory()
+      .currency()
+      .max(3)
+      .get();
 ```
 
-Mais informações sobre esse recurso pode ser encontrado [neste endereço](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/Moedas#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfSwicGVzcXVpc2FkbyI6dHJ1ZSwiYWN0aXZlVGFiIjoiZGFkb3MiLCJncmlkU3RhdGUiOnsDMAM6W3sDQgMiBDAEIiwDQQN9LHsDQgMiBDEEIiwDQQN9LHsDQgMiBDIEIiwDQQN9XSwDMQM6e30sAzIDOltdLAMzAzp7fSwDNAM6e30sAzUDOnt9fSwicGl2b3RPcHRpb25zIjp7A2EDOnt9LANiAzpbXSwDYwM6NTAwLANkAzpbXSwDZQM6W10sA2YDOltdLANnAzoia2V5X2FfdG9feiIsA2gDOiJrZXlfYV90b196IiwDaQM6e30sA2oDOnt9LANrAzo4NSwDbAM6ZmFsc2UsA20DOnt9LANuAzp7fSwDbwM6IkNvbnRhZ2VtIiwDcAM6IlRhYmxlIn19)
+Mais informações sobre esse recurso pode ser encontrado [neste endereço](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/Moedas#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=)
 
 ### dollarQuoteDay(String date)
 
-Esse método retorna a cotação do dolar em uma data especifica. 
+Esse método retorna a cotação do dolar em uma data especifica. A API do Bacen utiliza 
+utiliza o seguinte padrão para as datas MM/dd/yyyy caso seja passado a data diferente 
+do padrão será laçando `InvalidParameterException`.
 
+Exemplo de utilização: 
 
-A API do Bacen utiliza 
-utiliza o seguinte padrão para as datas MM/dd/yyyy
+```
+  // padrão de data MM/dd/yyyy
+  new ExchangeTaxesFactory()
+    .dollarQuoteDay("08/23/2022")
+    .get();
+```
 
+Mais informações sobre esse recurso pode ser encontrado [neste endereço](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarDia#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=)
 
+### dollarQuotePeriod(String start, String end)
 
+Esse método acessa o recurso que informa a cotação do dolar durante um período
+de tempo. Também utiliza o padrão de data MM/dd/yyyy.
 
+Exemplo de utilização:
 
+```
+  // padrão de data MM/dd/yyyy
+  new ExchangeTaxesFactory()
+    .dollarQuotePeriod("08/12/2022", "08/23/2022")
+    .get();
 
+```
+ou
 
+```
+  new ExchangeTaxesFactory()
+    .dollarQuotePeriod("08/12/2022", "08/23/2022")
+    .max(4)
+    .get();
+```
 
+Mais informações sobre esse recurso pode ser encontrado [neste endereço](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoDolarPeriodo#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=)
+
+### reportCardQuoteDay(ContryCurrency contryCurrency, String date)
+
+Este método acessa o recurso da API que informa com base em uma moeda 
+a cotação dela algumas vezes durante um dia. Este método utiliza o Enum 
+ContryCurrency para representar a moeda desejada.
+
+Exemplo de utilização:
+
+```
+  // padrão de data MM/dd/yyyy
+  new ExchangeTaxesFactory()
+    .reportCardQuoteDay(ContryCurrency.DOLAR_AUSTRALIANO, "08/23/2022")
+    .get();
+  
+ ```
+ ou
+ 
+ ```
+   new ExchangeTaxesFactory()
+     .reportCardQuoteDay(ContryCurrency.DOLAR_AUSTRALIANO, "08/23/2022")
+     .max(3)
+     .get();
+ ```
+ 
+Mais informações sobre esse recurso pode ser encontrado [neste endereço](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoMoedaDia#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=)
+ 
+ ### reportCardQuotePeriod(ContryCurrency currency, String start, String end)
+
+Este método acessa o recurso da Api que retorna a cotação da uma moeda, em uma janela 
+de tempo.
+
+Exemplo de utilização: 
+
+```
+ // padrão de data MM/dd/yyyy
+    new ExchangeTaxesFactory()
+      .reportCardQuotePeriod(ContryCurrency.DOLAR_AUSTRALIANO, "08/12/2022",  "08/23/2022")
+      .get();
+```
+ou
+
+```
+    new ExchangeTaxesFactory()
+      .reportCardQuotePeriod(ContryCurrency.DOLAR_AUSTRALIANO, "08/12/2022",  "08/23/2022")
+      .max(2)
+      .get();
+```
+
+Mais informações sobre esse recurso pode ser encontrado [neste endereço](https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/CotacaoMoedaPeriodo#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfX0=)
 
 
 
