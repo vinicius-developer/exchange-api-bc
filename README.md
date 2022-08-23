@@ -2,7 +2,7 @@
 
 O Bacen diponibiliza uma API que contem informações relacionadas a cotação 
 do dolar dos ultimos dias. Caso esteja interessando em ler sobre os recursos da 
-API, você pode encontrar essas informações [através do seguinte link.] (https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios/resource/ae69aa94-4194-45a6-8bae-12904af7e176?inner_span=True)
+API, você pode encontrar essas informações (através do seguinte link.) [https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios/resource/ae69aa94-4194-45a6-8bae-12904af7e176?inner_span=True]
 
 A ideia dessa abstração é conseguir consumir os 5 recursos disponiblizados pela 
 API para poupar a necessidade do usuário de construir seu próprio cliente da API.
