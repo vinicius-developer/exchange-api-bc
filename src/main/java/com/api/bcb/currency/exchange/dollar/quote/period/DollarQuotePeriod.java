@@ -28,6 +28,8 @@ public class DollarQuotePeriod extends EntityApi
 
     private final String end;
 
+    private Integer max = 100;
+
     public DollarQuotePeriod(String start, String end) {
         this.validateData(start);
         this.start = start;
@@ -44,6 +46,11 @@ public class DollarQuotePeriod extends EntityApi
             .doRequest();
     }
 
+    public DollarQuotePeriod max(Integer numberElements) {
+        this.max = numberElements;
+        return this;
+    }
+
     @Override
     protected String getRequestParams() {
         return "?@dataInicial=" + 
@@ -54,6 +61,8 @@ public class DollarQuotePeriod extends EntityApi
             "'" + 
             this.end + 
             "'" +
+            "&$top=" +
+            this.max +
             "&$format=json";
     }
 
