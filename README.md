@@ -12,7 +12,7 @@ API para poupar a necessidade do usuário de construir seu próprio cliente da A
 Para você chamar os recursos a forma certa é utilizar o classe facotry chamada 
 ```ExchangeTaxesFactory``` essa classe possui um método para cada recurso, são eles:
 
-### currency
+### currency()
 
 Responsável por oferecer as informações sobre as moedas que a API consegue 
 cobrir. Nós também podemos utilizar o método ```max``` para limitar a quantidade 
@@ -34,6 +34,17 @@ ou
       .get()
       
 ```
+
+Mais informações sobre esse recurso pode ser encontrado (neste endereço)[https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/aplicacao#!/recursos/Moedas#eyJmb3JtdWxhcmlvIjp7IiRmb3JtYXQiOiJqc29uIiwiJHRvcCI6MTAwfSwicGVzcXVpc2FkbyI6dHJ1ZSwiYWN0aXZlVGFiIjoiZGFkb3MiLCJncmlkU3RhdGUiOnsDMAM6W3sDQgMiBDAEIiwDQQN9LHsDQgMiBDEEIiwDQQN9LHsDQgMiBDIEIiwDQQN9XSwDMQM6e30sAzIDOltdLAMzAzp7fSwDNAM6e30sAzUDOnt9fSwicGl2b3RPcHRpb25zIjp7A2EDOnt9LANiAzpbXSwDYwM6NTAwLANkAzpbXSwDZQM6W10sA2YDOltdLANnAzoia2V5X2FfdG9feiIsA2gDOiJrZXlfYV90b196IiwDaQM6e30sA2oDOnt9LANrAzo4NSwDbAM6ZmFsc2UsA20DOnt9LANuAzp7fSwDbwM6IkNvbnRhZ2VtIiwDcAM6IlRhYmxlIn19]
+
+### dollarQuoteDay(String date)
+
+Esse método retorna a cotação do dolar em uma data especifica. 
+
+
+A API do Bacen utiliza 
+utiliza o seguinte padrão para as datas MM/dd/yyyy
+
 
 
 
