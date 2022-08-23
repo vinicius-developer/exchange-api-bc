@@ -1,21 +1,21 @@
 # Abstração da API de cotação de moedas disponibilizada pelo BACEN
 
-O Bacen diponibiliza uma API que contem informações relacionadas a cotação 
-do dolar dos ultimos dias. Caso esteja interessando em ler sobre os recursos da 
-API, você pode encontrar essas informações [através do seguinte link.](https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios/resource/ae69aa94-4194-45a6-8bae-12904af7e176?inner_span=True)
+O Bacen disponibiliza uma API que contem informações relacionadas a cotação 
+de moedas estrangeiras. Caso esteja interessando em ler sobre os recursos da 
+API, você pode encontrar as informações [através do seguinte link.](https://dadosabertos.bcb.gov.br/dataset/dolar-americano-usd-todos-os-boletins-diarios/resource/ae69aa94-4194-45a6-8bae-12904af7e176?inner_span=True)
 
 A ideia dessa abstração é conseguir consumir os 5 recursos disponiblizados pela 
-API para poupar a necessidade do usuário de construir seu próprio cliente da API.
+API para poupar a necessidade do desenvolvedor construir seu próprio client.
 
-## Intruções para a utilização da abstração:
+## Instruções para a utilização da abstração:
 
-Para você chamar os recursos a forma certa é utilizar o classe facotry chamada 
-```ExchangeTaxesFactory``` essa classe possui um método para cada recurso, são eles:
+Para você chamar os recursos a forma correta é utilizar a classe facotry chamada 
+`ExchangeTaxesFactory` essa classe possui um método para cada recurso, são eles:
 
 ### currency()
 
 Responsável por oferecer as informações sobre as moedas que a API consegue 
-cobrir. Nós também podemos utilizar o método ```max``` para limitar a quantidade 
+cobrir. Nós também podemos utilizar o método `max` para limitar a quantidade 
 de valores a serem retornados.
 
 Exemplo de utilização: 
@@ -40,9 +40,9 @@ Mais informações sobre esse recurso pode ser encontrado [neste endereço](http
 
 ### dollarQuoteDay(String date)
 
-Esse método retorna a cotação do dolar em uma data especifica. A API do Bacen utiliza 
-utiliza o seguinte padrão para as datas MM/dd/yyyy caso seja passado a data diferente 
-do padrão será laçando `InvalidParameterException`.
+Esse método retorna a cotação do dolar em uma data especifica. A API do Bacen utiliza o seguinte 
+padrão para as datas MM/dd/yyyy caso seja passado uma data com padrão diferente 
+será laçando a seguinte exceção `InvalidParameterException`.
 
 Exemplo de utilização: 
 
@@ -82,9 +82,9 @@ Mais informações sobre esse recurso pode ser encontrado [neste endereço](http
 
 ### reportCardQuoteDay(ContryCurrency contryCurrency, String date)
 
-Este método acessa o recurso da API que informa com base em uma moeda 
+Este método acessa o recurso da API que informa com base em uma moeda
 a cotação dela algumas vezes durante um dia. Este método utiliza o Enum 
-ContryCurrency para representar a moeda desejada.
+ContryCurrency para representar a moeda desejada e aceitas pela API.
 
 Exemplo de utilização:
 
