@@ -6,7 +6,9 @@ import com.api.bcb.currency.exchange.reportcard.quote.period.ds.SearchDollarQuot
 
 public interface ReportCardQuotePeriodInterface {
     
-    public SearchDollarQuotePeriodInterface get() 
-            throws IOException, InterruptedException;
+    SearchDollarQuotePeriodInterface get() 
+        throws IOException, InterruptedException;
+
+    ReportCardQuotePeriod max(Integer numberOfElements);
 
 }

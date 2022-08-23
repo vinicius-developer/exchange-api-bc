@@ -44,18 +44,13 @@ public class SearchResultCurrency extends SearchResult implements SearchResultCu
 
     @Override
     public String toString() {
-
-        new StringBuilder("{\"context\": \"")
-            .append(this.context)
-            .append("\", \n")
-            .append("\"listCurrencyData\": ")
-            .append(this.listCurrencyData)
-            .append(" }")
-            .toString();
-
-        return "{context: " + this.context + 
-            ", listCurrencyData: " + this.listCurrencyData + " }";
-
+        return "{\"context\": \n" +
+            "\"" +
+            this.context +
+            "\", \n" +
+            "\"listCurrencyData\": " +
+            this.listCurrencyData +
+            "\n }";
     }
 
 }

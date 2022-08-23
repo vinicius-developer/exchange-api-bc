@@ -31,6 +31,13 @@ public class DollarQuoteDay extends EntityApi
     }
 
     //1
+    private void validateData(String date) {
+        if(!ValidateSimpleDate.isValid(date)) {
+            throw new InvalidParameterException("Data informada nao e valida");
+        }
+    }
+
+    //1
     @Override
     public SearchResultDolarQuoteDayInterface get() 
             throws IOException, InterruptedException {
@@ -47,11 +54,5 @@ public class DollarQuoteDay extends EntityApi
             "&format=json";
     }
 
-    private void validateData(String date) {
-        //1
-        if(!ValidateSimpleDate.isValid(date)) {
-            throw new InvalidParameterException("Data informada nao e valida");
-        }
-    }
     
 }

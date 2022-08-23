@@ -53,23 +53,22 @@ public class SearchResultDolarQuoteDay extends SearchResult implements SearchRes
     @Override
     public String toString() {
 
-        return new StringBuilder("{\"context\": ")
-            .append(this.getContext())
-            .append(", \n")
-            .append("\"value\": [ \n")
-            .append("\t{ \n")
-            .append("\t\t\"cotacaoCompra\": ")
-            .append(this.purchaseQuote.toString())
-            .append(", \n")
-            .append("\t\t\"cotacaoVenda\": ")
-            .append(this.saleQuote.toString())
-            .append(", \n")
-            .append("\t\t\"dataHoraCotacao\": ")
-            .append(this.hourQuote)
-            .append("\n")
-            .append("\t} \n")
-            .append("]}")
-            .toString();
+        return "{\"context\": " +
+            this.getContext() +
+            ", \n" +
+            "\"value\": [ \n" +
+            "\t{ \n" +
+            "\t\t\"cotacaoCompra\": " +
+            this.purchaseQuote.toString() +
+            ", \n" +
+            "\t\t\"cotacaoVenda\": " +
+            this.saleQuote.toString() +
+            ", \n" +
+            "\t\t\"dataHoraCotacao\": " +
+            this.hourQuote +
+            "\n" +
+            "\t} \n" +
+            "]}";
     }
     
 }

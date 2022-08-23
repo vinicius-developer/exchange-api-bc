@@ -45,12 +45,12 @@ public class DollarQuotePeriod extends EntityApi
         return new RequesterToDollarQuotePeriodApi(this.getRequestParams())
             .doRequest();
     }
-
+    
     public DollarQuotePeriod max(Integer numberElements) {
         this.max = numberElements;
         return this;
     }
-
+    
     @Override
     protected String getRequestParams() {
         return "?@dataInicial=" + 

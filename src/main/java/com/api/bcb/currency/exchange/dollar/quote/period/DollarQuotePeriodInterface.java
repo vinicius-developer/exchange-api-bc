@@ -7,7 +7,9 @@ import com.api.bcb.currency.exchange.dollar.quote.period.ds.SearchResultDolarQuo
 
 public interface DollarQuotePeriodInterface {
 
-    public SearchResultDolarQuotePeriodInterface get() 
+    SearchResultDolarQuotePeriodInterface get() 
             throws IOException, InterruptedException;
     
+    DollarQuotePeriod max(Integer numberElements);
+
 }

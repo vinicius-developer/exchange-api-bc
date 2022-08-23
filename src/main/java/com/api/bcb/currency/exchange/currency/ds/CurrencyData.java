@@ -28,20 +28,19 @@ public class CurrencyData {
 
     @Override
     public String toString() {
-        return new StringBuilder("[ \n")
-            .append("\"simbolo\": ")
-            .append("\"")
-            .append(this.symbol)
-            .append("\", \n")
-            .append("\"nome_formatado\": ")
-            .append("\"")
-            .append(this.formattedName)
-            .append("\", \n")
-            .append("\"tipo\": ")
-            .append("\"")
-            .append(this.type)
-            .append("\", \n")
-            .toString();
+        return "[ \n" + 
+            "\"simbolo\": " + 
+            "\"" + 
+            this.symbol + 
+            "\", \n" + 
+            "\"nome_formatado\": " + 
+            "\"" + 
+            this.formattedName + 
+            "\", \n" + 
+            "\"tipo\": " + 
+            "\"" + 
+            this.type + 
+            "\", \n";
     }
 
     @Override

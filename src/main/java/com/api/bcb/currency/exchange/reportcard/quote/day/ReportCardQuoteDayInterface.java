@@ -9,4 +9,6 @@ public interface ReportCardQuoteDayInterface {
     public SearchDollarQuoteDayInterface get() 
             throws IOException, InterruptedException;
 
+    ReportCardQuoteDay max(Integer numberOfElements);
+
 }
